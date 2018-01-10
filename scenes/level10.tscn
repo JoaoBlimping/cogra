@@ -1,0 +1,162 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://objects/slimeHills.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/slimeBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/cogra.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/dock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/burd.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/end.tscn" type="PackedScene" id=7]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+song = "nice"
+
+[node name="slimehills" parent="." instance=ExtResource( 2 )]
+
+[node name="blocks" type="Node2D" parent="."]
+
+[node name="block" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 350.516, -110.912 )
+transform/scale = Vector2( 0.866581, 1.32586 )
+
+[node name="block1" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 462.3, -337.406 )
+transform/scale = Vector2( 2.06587, 0.251323 )
+
+[node name="block3" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 527.237, -579.354 )
+transform/scale = Vector2( 0.504156, 2.43956 )
+
+[node name="block2" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 869.355, -207.899 )
+transform/scale = Vector2( 0.524465, 0.251323 )
+
+[node name="block4" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 936.248, -407.845 )
+transform/scale = Vector2( 0.524465, 0.251323 )
+
+[node name="block5" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 881.116, -715.848 )
+transform/scale = Vector2( 0.524465, 0.251323 )
+
+[node name="block6" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 563.846, -830.501 )
+transform/scale = Vector2( 1.39012, 0.132366 )
+
+[node name="dudes" type="Node2D" parent="."]
+
+[node name="cogra" parent="dudes" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 322.643, -283.232 )
+
+[node name="Camera2D" type="Camera2D" parent="dudes/cogra"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = -10000000
+limit/right = 100000000
+limit/bottom = 0
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.6
+
+[node name="dock" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 471.6, -210.957 )
+
+[node name="dock1" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 530.244, -216.659 )
+
+[node name="dock2" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 597.034, -216.659 )
+
+[node name="dock3" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 663.823, -215.03 )
+
+[node name="dock4" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 728.984, -210.143 )
+
+[node name="dock5" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 786.814, -212.586 )
+
+[node name="dock7" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 288.336, -392.593 )
+
+[node name="dock11" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 388.513, -769.838 )
+
+[node name="dock12" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 300.068, -552.335 )
+
+[node name="dock9" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 608.836, -705.007 )
+
+[node name="dock10" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 670.584, -707.947 )
+
+[node name="dock8" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 220.745, -341.623 )
+
+[node name="burd" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 622.624, -404.301 )
+
+[node name="block5" parent="dudes/burd" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 16.6475, -60.8809 )
+transform/scale = Vector2( 0.524465, 0.251323 )
+
+[node name="burd2" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 678.579, -883.529 )
+
+[node name="burd3" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 607.281, -1015.29 )
+
+[node name="burd4" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 550.424, -948.509 )
+
+[node name="burd5" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 471.003, -1140.74 )
+
+[node name="burd1" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 394.291, -417.838 )
+
+[node name="end" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 392.617, -446.607 )
+next = "res://scenes/level11.tscn"
+
+

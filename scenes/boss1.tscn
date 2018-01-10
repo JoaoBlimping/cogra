@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://pics/blocks.png" type="Texture" id=2]
+[ext_resource path="res://objects/block.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/cogra.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/monk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/statue.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/niceStatue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/end.tscn" type="PackedScene" id=8]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+song = "midboss"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.2, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+texture = ExtResource( 2 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="blocks" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="block" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 714.085, -35.6828 )
+transform/scale = Vector2( 7.20985, 0.421005 )
+
+[node name="block1" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 35.759, -298.287 )
+transform/scale = Vector2( 0.426592, 3.04704 )
+
+[node name="block2" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 511.659, -564.764 )
+transform/scale = Vector2( 5.1856, 0.382271 )
+
+[node name="block3" parent="blocks" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 971.493, -441.199 )
+transform/scale = Vector2( 0.587259, 1.61792 )
+
+[node name="dudes" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="cogra" parent="dudes" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 158.778, -122.684 )
+
+[node name="Camera2D" type="Camera2D" parent="dudes/cogra"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = -10000000
+limit/right = 100000000
+limit/bottom = 0
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.6
+
+[node name="monk" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 968.789, -177.937 )
+
+[node name="statue" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 886.753, -203.736 )
+
+[node name="statue1" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 591.629, -486.646 )
+
+[node name="statue2" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 774.418, -380.309 )
+
+[node name="statue 2" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 323.838, -177.959 )
+
+[node name="end" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 1300.17, -166.972 )
+next = "res://scenes/story1.tscn"
+
+

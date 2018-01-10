@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://pics/burd.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -26.4183, 22.9277, -23.008, -17.7402, -22.667, -16.9729, -19.2567, -9.21446 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -19.2567, -9.21446, 17.3188, -25.0724, -1.01157, 16.1923, -26.4183, 22.9277 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1.01157, 16.1923, 27.5497, 23.0982, 14.3348, 30.9419, -26.4183, 22.9277 )
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends \"../scripts/dude.gd\"
+
+func _process(delta):
+	if (grounded): velocity.y = -600"
+
+[node name="burd" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 5 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+collision/layers = 1
+collision/mask = 0
+collision/margin = 0.08
+script/script = SubResource( 4 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( -0.899582, 0.257023 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+visibility/visible = false
+build_mode = 0
+polygon = Vector2Array( -22.667, -16.9729, -19.2567, -9.21446, 17.3188, -25.0724, -1.01157, 16.1923, 27.5497, 23.0982, 14.3348, 30.9419, -26.4183, 22.9277, -23.008, -17.7402 )
+shape_range = Vector2( 0, 2 )
+trigger = false
+
+

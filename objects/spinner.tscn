@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Node2D
+
+export var speed = 2
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	rotate(speed * delta)
+"
+
+[node name="spinner" type="Node2D"]
+
+transform/pos = Vector2( 2274.35, -379.437 )
+script/script = SubResource( 1 )
+speed = -1
+
+

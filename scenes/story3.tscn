@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://pics/inst.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Sprite
+
+func back():
+	get_tree().change_scene(\"res://scenes/meu.tscn\")"
+
+[node name="Sprite" type="Sprite"]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+script/script = SubResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 445.0
+margin/top = 447.0
+margin/right = 515.0
+margin/bottom = 514.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Continue"
+flat = false
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 241.0
+margin/top = 78.0
+margin/right = 579.0
+margin/bottom = 363.0
+custom_colors/font_color = Color( 0.0419369, 0.984375, 0.0115356, 1 )
+custom_colors/font_color_shadow = Color( 0.616617, 0.168152, 0.742188, 1 )
+custom_constants/shadow_offset_x = 6
+custom_constants/shadow_offset_y = 6
+text = "Turns Out Karkon was the source of the filth all along.
+He was using the slime fountain which is where all the slime comes from in the middle of the slime kingdom,
+but he connected this to some tools so that he could do some really bad shit...
+
+The END,
+You saved the moon lake, Cogra, I hope you are really proud of yourself
+
+
+This game was created by Dany Burton, and you can enjoy more great shit like this at http://www.danyburton.net"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="button_down" from="Button" to="." method="back"]
+
+

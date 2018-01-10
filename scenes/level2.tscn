@@ -1,0 +1,253 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://pics/cavern.png" type="Texture" id=2]
+[ext_resource path="res://pics/waves.png" type="Texture" id=3]
+[ext_resource path="res://objects/cavernBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/cogra.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/dock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/burd.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/end.tscn" type="PackedScene" id=8]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+song = "level"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+editor/display_folded = true
+transform/pos = Vector2( 0, -600 )
+motion/scale = Vector2( 0.2, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1024, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+texture = ExtResource( 2 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="ParallaxLayer 2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.6, 1 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1024, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer 2"]
+
+transform/pos = Vector2( 0, -100 )
+texture = ExtResource( 3 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 100 )
+
+[node name="blocks" type="Node2D" parent="."]
+
+[node name="block 2" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 306.153, -56.8235 )
+transform/scale = Vector2( 5.81215, 2.04978 )
+
+[node name="block13" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 744.268, -37.3436 )
+transform/scale = Vector2( 6.84587, 1.16537 )
+
+[node name="block14" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1349.62, -44.6945 )
+transform/scale = Vector2( 4.78991, 2.93419 )
+
+[node name="block15" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1835.15, -92.108 )
+transform/scale = Vector2( 1.42457, 3.84156 )
+
+[node name="block16" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1931.07, -237.289 )
+transform/scale = Vector2( 1.73468, 3.50848 )
+
+[node name="block17" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2035.46, -360.049 )
+transform/scale = Vector2( 1.73468, 3.50848 )
+
+[node name="block18" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2398.42, -625.769 )
+transform/scale = Vector2( 4.28236, 14.0759 )
+
+[node name="block19" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2422.25, -19.6748 )
+transform/scale = Vector2( 11.121, 0.987269 )
+
+[node name="block20" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 3100.36, -142.667 )
+transform/scale = Vector2( 11.121, 0.987269 )
+
+[node name="block21" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 2823.91, -221.337 )
+transform/scale = Vector2( 0.819755, 2.61469 )
+
+[node name="block22" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 3398.42, -235.741 )
+transform/scale = Vector2( 1.21795, 2.61469 )
+
+[node name="block23" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 3667.68, 158.719 )
+transform/scale = Vector2( 13.9603, 5.45403 )
+
+[node name="dudes" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="cogra" parent="dudes" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 230.695, -177.718 )
+
+[node name="Camera2D" type="Camera2D" parent="dudes/cogra"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = -10000000
+limit/right = 100000000
+limit/bottom = 0
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.6
+
+[node name="dock9" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1068.77, -97.1261 )
+
+[node name="dock10" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1588.42, -105.271 )
+
+[node name="dock11" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1721.18, -110.158 )
+
+[node name="dock12" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2112.18, -442.158 )
+
+[node name="dock13" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2245.18, -370.158 )
+
+[node name="dock14" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2173.18, -286.158 )
+
+[node name="dock15" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2221.18, -73.1581 )
+
+[node name="dock16" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2897.18, -236.158 )
+
+[node name="dock17" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 2964.99, -360.218 )
+
+[node name="dock18" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3130.18, -229.158 )
+
+[node name="dock19" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3273.03, -372.423 )
+
+[node name="dock20" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3317.18, -220.158 )
+
+[node name="dock21" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 3134.18, -527.158 )
+
+[node name="dock8" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 464.786, -158.535 )
+
+[node name="dock22" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 891.14, -248.951 )
+
+[node name="dock23" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 733.83, -129.131 )
+
+[node name="dock24" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1352.78, -182.058 )
+
+[node name="burd" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 539.57, -181.459 )
+
+[node name="burd1" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1072.26, -170.871 )
+
+[node name="burd2" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1585.4, -174.943 )
+
+[node name="burd3" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1717.35, -368.796 )
+
+[node name="burd4" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 3065, -226.571 )
+
+[node name="burd5" parent="dudes" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 3194.38, -224.365 )
+
+[node name="end" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 3854.78, -126.934 )
+next = "res://scenes/level3.tscn"
+
+

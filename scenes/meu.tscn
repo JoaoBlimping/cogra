@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://pics/canvas.png" type="Texture" id=1]
+[ext_resource path="res://pics/title.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Sprite
+
+func _ready():
+	get_node(\"/root/musicPlayer\").playSong(\"title\")
+
+func play():
+	get_tree().change_scene(\"res://scenes/level.tscn\")
+
+func instructions():
+	get_tree().change_scene(\"res://scenes/instructions.tscn\")
+
+func password():
+	get_tree().change_scene(\"res://scenes/password.tscn\")
+
+func quit():
+	get_tree().quit()"
+
+[node name="Sprite" type="Sprite"]
+
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 1024, 600 )
+script/script = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 496, 145 )
+texture = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 64.0
+margin/top = 384.0
+margin/right = 194.0
+margin/bottom = 515.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Play"
+flat = false
+
+[node name="Button2" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 322.0
+margin/top = 385.0
+margin/right = 449.0
+margin/bottom = 513.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Instructions"
+flat = false
+
+[node name="Button1" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 832.0
+margin/top = 386.0
+margin/right = 961.0
+margin/bottom = 513.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Quit"
+flat = false
+
+[node name="Button3" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 578.0
+margin/top = 384.0
+margin/right = 707.0
+margin/bottom = 515.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Password"
+flat = false
+
+[connection signal="button_down" from="Button" to="." method="play"]
+
+[connection signal="button_down" from="Button2" to="." method="instructions"]
+
+[connection signal="button_down" from="Button1" to="." method="quit"]
+
+[connection signal="button_down" from="Button3" to="." method="password"]
+
+

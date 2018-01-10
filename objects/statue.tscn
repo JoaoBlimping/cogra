@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://pics/statue.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 13.8334
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends \"../scripts/dude.gd\"
+
+var speed = 500
+
+func _ready():
+	GRAVITY = 100
+
+func _process(delta):
+	if (velocity.length() == 0):
+		var angle = randf() * PI * 2
+		velocity.x = sin(angle) * speed
+		velocity.y = cos(angle) * speed
+
+func collision(other):
+	.collision(other)
+	var angle = -velocity.angle() + randf() * 0.7
+	velocity.x = sin(angle) * speed
+	velocity.y = cos(angle) * speed"
+
+[node name="statue" type="KinematicBody2D"]
+
+editor/display_folded = true
+transform/pos = Vector2( 632, -286 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = SubResource( 2 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

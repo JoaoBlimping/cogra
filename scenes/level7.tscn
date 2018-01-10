@@ -1,0 +1,196 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://pics/gravelSky.png" type="Texture" id=2]
+[ext_resource path="res://pics/tendrils.png" type="Texture" id=3]
+[ext_resource path="res://objects/spinner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/gravel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/cogra.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/end.tscn" type="PackedScene" id=7]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+song = "level"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.2, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 1024, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 1024, 600 )
+
+[node name="ParallaxLayer 2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion/scale = Vector2( 0.5, 0.3 )
+motion/offset = Vector2( 0, -424 )
+motion/mirroring = Vector2( 1024, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer 2"]
+
+texture = ExtResource( 3 )
+centered = false
+
+[node name="blocks" type="Node2D" parent="."]
+
+[node name="spinner" parent="blocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1641.96, -1157.38 )
+
+[node name="block" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -602.605, -92.272 )
+
+[node name="block1" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 461.198, -264.667 )
+
+[node name="block3" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 372.898, 597.308 )
+
+[node name="block4" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -392.367, 887.436 )
+
+[node name="block5" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 465.402, 391.275 )
+
+[node name="block6" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 629.387, 685.607 )
+
+[node name="block7" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -182.13, 614.127 )
+
+[node name="block8" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -81.4635, 142.206 )
+
+[node name="block19" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 66.8177, 40.1772 )
+
+[node name="block20" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 149.801, -57.77 )
+
+[node name="block21" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 79.0612, -248.223 )
+
+[node name="block22" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -201.177, -233.259 )
+
+[node name="block23" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -266.475, -94.5001 )
+
+[node name="block24" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -80.1029, -276.791 )
+
+[node name="block25" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -231.105, 18.4113 )
+
+[node name="block9" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -232.587, -411.833 )
+
+[node name="block10" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -1119.79, -395.014 )
+
+[node name="block11" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -917.962, 366.047 )
+
+[node name="block12" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -796.024, 870.617 )
+
+[node name="block13" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 469.607, 185.242 )
+
+[node name="block14" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1239.08, 189.447 )
+
+[node name="block15" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 238.345, -529.566 )
+
+[node name="block16" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -106.445, 815.955 )
+
+[node name="block17" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 410.74, 1089.26 )
+
+[node name="block18" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 410.74, 1089.26 )
+
+[node name="block2" parent="blocks/spinner" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -842.276, 290.36 )
+
+[node name="dudes" type="Node2D" parent="."]
+
+[node name="cogra" parent="dudes" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1541.1, -1299.23 )
+
+[node name="Camera2D" type="Camera2D" parent="dudes/cogra"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = -10000000
+limit/right = 100000000
+limit/bottom = 0
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.6
+
+[node name="end" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1443.95, -2061.81 )
+next = "res://scenes/level8.tscn"
+
+
