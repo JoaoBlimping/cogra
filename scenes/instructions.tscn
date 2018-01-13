@@ -43,16 +43,15 @@ margin/left = 241.0
 margin/top = 78.0
 margin/right = 839.0
 margin/bottom = 245.0
-text = "You are Cogra, you are born to be a messenger of the moon lake spirit. 
-You must traverse four worlds in order to deliver a message to Karkon, the king of Slime Mountain.
-Unfortunately there are fucking disgusting creatures everywhere for unknown reasons, but he may have the answers.
-YOu must hurry before the creatures befoul the moon lake.
+text = "The Cogra adventure continues, Karkon has escaped to the beach and is attempting to hire a boat to escape, so you must track him
+down through the slime forests, the realm of dust and the beach before he can escape.
 
 Here,s the lowdown mate::::::::::
 use the arrow keys to move
 use the space bar to jump
 do not hit any foul creatures
-get to the portal to visit the next stage"
+get to the portal to visit the next stage
+Get in a car to drive through the level and you can also run over foul beasts, but not spikes"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

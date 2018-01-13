@@ -4,9 +4,13 @@
 
 script/source = "extends StreamPlayer
 
+var song = \"\"
+
 func playSong(name):
-	set_stream(load(\"res://songs/%s.ogg\" % name))
-	musicPlayer.play()"
+	if (name != song):
+		set_stream(load(\"res://songs/%s.ogg\" % name))
+		musicPlayer.play()
+		song = name"
 
 [node name="musicPlayer" type="StreamPlayer"]
 

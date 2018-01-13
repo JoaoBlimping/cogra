@@ -4,10 +4,12 @@ var velocity = Vector2()
 var GRAVITY = 666
 const FPS = 0.1
 var grounded = false
+var wet = false
 onready var sprite = get_node("sprite")
 var frames = 1
 var t = FPS
 var frame = 0
+var dangerous = true
 
 func _ready():
 	set_process(true)
@@ -27,8 +29,9 @@ func _process(delta):
 	if (move(piece(fail,1)).y > 0):
 		grounded = true
 		velocity.y = 0
-	else:
-		grounded = false
+	else: grounded = false
+	
+	if (wet && velocity.y > 0): grounded = true
 	
 	# animation stuff
 	t -= delta
@@ -41,7 +44,9 @@ func _process(delta):
 	if (get_pos().y > 0): fallen()
 
 func collision(other):
-	if (other.get_name() == "cogra"): other.fallen()
+	if (other.get_name() == "cogra"):
+		if (other.dangerous): fallen()
+		else: other.fallen()
 
 func fallen():
 	queue_free()

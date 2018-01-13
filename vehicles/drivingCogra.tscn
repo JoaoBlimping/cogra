@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://pics/cogra.png" type="Texture" id=1]
+[ext_resource path="res://pics/car.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -11,29 +11,30 @@ radius = 13.8647
 
 script/source = "extends \"../scripts/dude.gd\"
 
+const MOD = 190
 const SPEED = 400
 const JUMP = 500
 
 onready var global = get_node(\"/root/global\")
 
-
 func _ready():
 	set_collision_mask(2)
-	dangerous = false
+	dangerous = true
 
 func _process(delta):
 	if (Input.is_action_pressed(\"ui_accept\") and grounded): velocity.y = -JUMP
 	
 	velocity.x = 0
-	if (Input.is_action_pressed(\"ui_left\")): velocity.x = -SPEED
-	if (Input.is_action_pressed(\"ui_right\")): velocity.x = SPEED
+	if (Input.is_action_pressed(\"ui_left\")): velocity.x = SPEED - MOD
+	elif (Input.is_action_pressed(\"ui_right\")): velocity.x = SPEED + MOD
+	else: velocity.x = SPEED
 
 func fallen():
 	global.lives -= 1
 	get_tree().reload_current_scene()
 
 func collision(other):
-	if (other.is_in_group(\"dudes\")): fallen()"
+	if (other.is_in_group(\"dudes\")): other.queue_free()"
 
 [node name="cogra" type="KinematicBody2D"]
 
@@ -50,7 +51,6 @@ script/script = SubResource( 2 )
 
 transform/pos = Vector2( -0.899582, 0.257023 )
 texture = ExtResource( 1 )
-hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
